@@ -11,17 +11,17 @@ gsap.registerPlugin(ScrollTrigger)
 export default function MoringaAnimation() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { rive, RiveComponent } = useRive({
-    src: './moringa.riv', // Replace with your Rive file path
-    stateMachines: 'State Machine 1', // Replace with your state machine name
+    src: './moringa.riv',
+    stateMachines: 'State Machine 1',
+    artboard: 'main',
     layout: new Layout({
-      fit: Fit.Cover,
+      fit: Fit.FitHeight,
       alignment: Alignment.Center,
     }),
-    autoplay: false,
+    autoplay: true,
   })
 
-  // Assuming you have a number input in your state machine to control the animation progress
-  const progressInput = useStateMachineInput(rive, 'State Machine 1', 'progress')
+  const progressInput = useStateMachineInput(rive, 'State Machine 1', 'scroll-progress', 0)
 
   useEffect(() => {
     if (!rive || !containerRef.current || !progressInput) return
@@ -30,7 +30,7 @@ export default function MoringaAnimation() {
     const proxy = { progress: 0 }
 
     gsap.to(proxy, {
-      progress: 1,
+      progress: 300,
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top top',
@@ -52,10 +52,10 @@ export default function MoringaAnimation() {
   }, [rive, progressInput])
 
   return (
-    // <div ref={containerRef} className="h-[200vh] w-full">
-      <div className="sticky top-0 h-screen w-full">
+    <div ref={containerRef} className="h-[200vh] w-full">
+      <div className="fixed top-0 h-screen w-full">
         <RiveComponent />
       </div>
-    // </div>
+    </div>
   )
 }
