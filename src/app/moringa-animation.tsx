@@ -53,7 +53,7 @@ export default function MoringaAnimation() {
 
   return (
     <div ref={containerRef} className="h-[200vh] w-full">
-      <div className="fixed top-0 h-screen w-full">
+      <div className="sticky top-0 h-screen w-full">
         <RiveComponent />
       </div>
     </div>
