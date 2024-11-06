@@ -14,7 +14,7 @@ export default function Home() {
         >
           <Balancer>
             <span className="text-secondary">Pa</span>
-            <span><Image src="/logo.svg" alt="Moringa" width={65} height={65} className="inline" /></span>
+            <span><Image src="/logo.svg" alt="Moringa" width={45} height={45} className="inline" /></span>
             <span className="text-primary">fully</span>
           </Balancer>
       </h1>
