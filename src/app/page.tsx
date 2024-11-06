@@ -1,3 +1,4 @@
+import Image from "next/image";
 import MoringaAnimation from "./moringa-animation";
 import Balancer from "react-wrap-balancer";
 
@@ -12,10 +13,11 @@ export default function Home() {
           }}
         >
           <Balancer>
-            <span className="text-secondary">Pac</span>
+            <span className="text-secondary">Pa</span>
+            <span><Image src="/logo.svg" alt="Moringa" width={65} height={65} className="inline" /></span>
             <span className="text-primary">fully</span>
           </Balancer>
-        </h1>
+      </h1>
       <MoringaAnimation />
     </div>
   );
